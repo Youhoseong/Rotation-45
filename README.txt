@@ -77,6 +77,9 @@ This text file describes brief but precise and complete specification of project
 --------------------------------------------------------------------------------------------------
 
 <TEAM 5's idea>
+1. trivial
+	a.
+	b.
 
 2. juggling
 	a. 문자열 포인터와 n, 그리고 d를 인수로 넘겨 받는다.
