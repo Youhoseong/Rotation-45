@@ -25,6 +25,9 @@ This text file describes brief but precise and complete specification of project
 
 *이전폴더에서 공동작업 후 Rotation-45폴더는 이전 자료를 옮기는 용도로만 사용했다.*
 
+
+****
+
 ## Declaration of important data and data types in user header file
  ```
 	"Rotation.h"
