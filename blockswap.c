@@ -1,5 +1,3 @@
-#include "Rotation.h"
-
 void swap(char arr[], int a, int b, int d)
 {
 	for (int i = 0; i < d; ++i)
