@@ -6,13 +6,13 @@ This text file describes brief but precise and complete specification of project
 - your team's brief ideas of implementations
 
 --------------------------------------------------------------------------------------------------
-##<프로그램 개요>
+## <프로그램 개요>
  - 사용자에게 프로그램을 실행시킬 것인지 묻고, 반복해서 문자열의 길이와 Rotation 횟수를 받을 수 있게 만든다.
  - 문자열, 문자열의 길이, 회전 횟수 등의 input을 받아서 4가지 방법에 따라 문자열을 rotate시키는 프로그램을 작성한다.
  - 문자열의 길이, 회전 횟수, 4가지 rotate 방법에 따라 실행시간을 측정하고 비교한다.
 --------------------------------------------------------------------------------------------------
 
-##<역할분담>
+## <역할분담>
 
 -header: 전현욱(Jeon1)
 
@@ -27,8 +27,9 @@ This text file describes brief but precise and complete specification of project
 -reverse: 김윤희(tngkrbb123)
 
 -README 파일: 모두
+
 --------------------------------------------------------------------------------------------------
-##<Declaration of important data and data types in user header file>
+## <Declaration of important data and data types in user header file>
 
 	a. name: Rotation.h 
 	b. Headers included
@@ -39,7 +40,7 @@ This text file describes brief but precise and complete specification of project
     	c. ownership: Hyunuk Jeon
 
 --------------------------------------------------------------------------------------------------
-##<Function descriptions>
+## <Function descriptions>
 
 1. Trivial solution
 	a. name: Trivial
@@ -75,7 +76,7 @@ This text file describes brief but precise and complete specification of project
 
 --------------------------------------------------------------------------------------------------
 
-##<TEAM 5's idea>
+## <TEAM 5's idea>
 1. trivial
 	a. 문자열과 n, d를 인수로 넘겨 받는다.
 	b. temp를 초기화시킨다.
@@ -107,7 +108,7 @@ This text file describes brief but precise and complete specification of project
 	e. d가 양수일때는 n - d값을 기준으로 두개로 나누어서 각각 reverse시킨후 원하는 d만큼 rotate시킨다.
 
 --------------------------------------------------------------------------------------------------
-##<TestCase>
+## <TestCase>
 
 ##[STRLength]  [ROTATE distance]  [T.trivial]    [T.juggle]     [T.bw]      [T.reverse] 
 10	     1                   0.000000       0.000000       0.000000    0.000000
