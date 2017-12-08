@@ -74,11 +74,11 @@ This text file describes brief but precise and complete specification of project
 ## TEAM 5's idea
  ```
 1. trivial
-	  a. 문자열과 n, d를 인수로 넘겨 받는다.
+	  a. 문자열 str 과  정수 n, d를 인수로 넘겨 받는다.
 	  b. temp를 초기화시킨다.
-	  c. d가 음수일 때와 양수일 때로 CASE를 구분한다.
-	  d. (d가 양수) temp에 첫번째 문자를 임시저장하고 다음칸의 문자를 앞칸으로 이동시킨다.
-	  e. (d가 음수) d를 음수로 변환한 후 temp를 n-1번째의 문자로 임시저장하고 다음칸의 문자를 앞칸의 문자로 저장한다.
+	  c. d가 양수일 때와 음수일 때로 CASE를 구분한다.
+	  d. d가 양수일 때 temp에 첫번째 문자를 임시저장하고 다음칸의 문자를 앞칸으로 이동시킨다.
+	  e. d가 음수일 때 d를 음수로 변환한 후 temp를 n-1번째의 문자로 임시저장하고 다음칸의 문자를 앞칸의 문자로 저장한다.
 
 2. juggling
 	  a. 문자열 포인터와 n, 그리고 d를 인수로 넘겨 받는다.
