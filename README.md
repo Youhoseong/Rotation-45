@@ -23,11 +23,6 @@ This text file describes brief but precise and complete specification of project
 - **README**: 모두
 ****
 
-*이전폴더에서 공동작업 후 Rotation-45폴더는 이전 자료를 옮기는 용도로만 사용했다.*
-
-
-****
-
 ## Declaration of important data and data types in user header file
  ```
 	"Rotation.h"
@@ -77,31 +72,35 @@ This text file describes brief but precise and complete specification of project
 ****
 
 ## TEAM 5's idea
- ```
-1. trivial
-	  a. 문자열 str 과  정수 n, d를 인수로 넘겨 받는다.
-	  b. temp를 초기화시킨다.
-	  c. d가 양수일 때와 음수일 때로 CASE를 구분한다.
-	  d. d가 양수일 때 temp에 첫번째 문자를 임시저장하고 다음칸의 문자를 앞칸으로 이동시킨다.
-	  e. d가 음수일 때 d를 음수로 변환한 후 temp를 n-1번째의 문자로 임시저장하고 다음칸의 문자를 앞칸의 문자로 저장한다.
 
-2. juggling
+**1. trivial**
+ ```
+	  a. 문자열과 n, d를 인수로 넘겨 받는다.
+	  b. temp를 초기화시킨다.
+	  c. d가 음수일 때와 양수일 때로 CASE를 구분한다.
+	  d. (d가 양수) temp에 첫번째 문자를 임시저장하고 다음칸의 문자를 앞칸으로 이동시킨다.
+	  e. (d가 음수) d를 음수로 변환한 후 temp를 n-1번째의 문자로 임시저장하고 다음칸의 문자를 앞칸의 문자로 저장한다.
+ ```
+**2. juggling**
+ ```
 	  a. 문자열 포인터와 n, 그리고 d를 인수로 넘겨 받는다.
 	  b. d가 음수일 때와 양수일 때로 CASE를 구분한다.
 	  c. (d가 음수) 문자열의 첫 번째 index를 temp에 임시 저장하고, d칸 간격으로 문자열을 이동시킨 뒤 
 	        마지막으로 마지막 index에 temp를 저장한다. 이 과정을 d와 n의 최대공약수 만큼 반복한다. 
 	  d. (d가 양수) 문자열의 마지막 index를 temp에 임시 저장하고, d칸 간격으로 문자열을 이동시킨 뒤
 	        마지막으로 첫 번째 index에 temp를 저장한다. 이 과정을 d와 n의 최대공약수 만큼 반복한다. 
-
-3. blockswap
+ ```
+**3. blockswap**
+ ```
 	swap함수(arr, a, b, d): d번만큼 a+i번째 원소와 b+i번째 원소를 교체한다.
 	  a. A블럭의 크기를 n-d, B블럭의 크기를 d로 초기 설정한다
 	  b. 'A블럭의 크기 < B블럭의 크기'이면 swap함수를 호출해서 (A블럭 크기)번 만큼 ((n-d)- A블럭의 크기)번째 원소와 
             (n-d)+(B블럭의 크기-A블럭의 크기)번째 원소를 교체한다. 
 	  c. 그렇지 않은 경우는 ((n-d)-A블럭 크기)번째 원소와 (n-d)번째 원소를 (B블럭 크기)번 만큼 교체한다. 
 	  d. 이 과정을 A블럭의 크기와 B블럭의 크기가 같아질 때까지 반복한다.
-
-4. reverse
+ ```
+**4. reverse**
+ ```
 	  a. 문자열과 rotate시킬 크기 d, 문자열의 길이인 n을 reverse함수의 인수로 넘겨 받는다.
 	  b. 세번 호출할 sub_reverse함수를 추가하여 문자열을 reverse시킬 수 있게 한다. 
 	  c. d가 음수일 때아 양수일 때로 CASE를 구분하여  sub_reverse함수를 호출할때의 범위를 다르게 지정한다.
@@ -109,7 +108,7 @@ This text file describes brief but precise and complete specification of project
 	  e. d가 양수일때는 n - d값을 기준으로 두개로 나누어서 각각 reverse시킨후 원하는 d만큼 rotate시킨다.
 ```
 ****
-## <TestCase>
+## TestCase
 ```
 STRLength    ROTATE d            T.trivial     T.juggle        T.bw        T.reverse 
 
@@ -120,10 +119,11 @@ STRLength    ROTATE d            T.trivial     T.juggle        T.bw        T.rev
 10000        8705                0.473000	0.001000       0.000000    0.000000
 100000 	     54123               29.762000      0.001000       0.001000    0.001000
 500000       12354               33.677000      0.005000       0.003000    0.003000
-500000       20                  0.000000       0.005000       0.005000    0.004000
+500000       20                  0.055000       0.005000       0.005000    0.004000
 1000000      12354               67.666000      0.009000       0.007000    0.008000
 10000000     200                 10.881000      0.151000       0.074000    0.074000
 10000000     2000                109.10000      0.106000       0.068000    0.075000
+10000000     27000           1499.623000      0.181000        0.075000   0.080000
  ```
 ****
 
@@ -133,26 +133,35 @@ STRLength    ROTATE d            T.trivial     T.juggle        T.bw        T.rev
 **- Rotate 횟수: d**
 
 - **trivial 알고리즘**은 대략 **N*d** 만큼의 계산을 수행해야 한다. 테스트한 컴퓨터는 1초에 약 1억 7000만번의 계산을 수행한다.
-  그래서 N*d/170000000 의 값을 계산하면 trivial의 실행 시간을 대략적으로 추론할 수 있다. 따라서 프로그램 실행 시간이 가장 오래 걸린다고 추론할 수 있다.
+  그래서 N*d/170000000 의 값을 계산하면 trivial의 실행 시간을 대략적으로 추론할 수 있다. 
+  시간복잡도: O(N*|d|)
 
 - **juggle 알고리즘**은 적어도 trivial 알고리즘의 계산량에서 Rotate 횟수인 d로 나눈 만큼(즉, N만큼)의 계산을 수행해야 한다.
 하지만 N과 d의 GCD(최대공약수)가 1이면, 그 계산량이 1이 아닐 때 보다 증가하므로 계산량이 N보다 커질 수 있다.
 따라서 juggle 알고리즘은 "적어도 N만큼"의 계산량을 수행하므로 실행 시간을 t라하면, 그 시간은 t>=N/170000000초 정도로 추론할 수 있다.
+시간복잡도: O(N)
 
 - **blockswap 알고리즘**은 문자열을 d와 N-d 크기의 블록으로 묶고 재귀적으로 함수를 호출해서 swap을 수행한다.
 때문에 원소를 하나씩 옮기는 trivial solution과 juggle 알고리즘보다 훨씬 빠르다.
 d의 값이 N/2의 값에 가까워 질 수록 더 빨라진다. 예를 들어서 10만 자리의 문자열을 d를 5만으로 한다면 reverse보다 계산시간이 빠르게 된다.
+시간복잡도: O(N)
   
 - **reverse 알고리즘**은 3단계에 걸쳐서 rotate를 진행하는데, 처음에 d/2만큼의 문자열 원소를 reverse하고 두 번째는 n-d/2만큼, 세 번째는 n/2만큼 reverse를 한다.
 따라서 총 계산량이 약 n번이라 할 수 있으므로 실행 시간이 t라 할 때 약 N/170000000초 정도 소요됨을 추론할 수 있다.
+시간복잡도: O(N)
 
+따라서 시간복잡도 측면으로 보았을 때 trivial 알고리즘이 가장 오래 걸린다. 
+또한 juggle, blockswap, reverse알고리즘은 시간복잡도 측면에서 보았을 때 같으므로 걸리는 시간의 증가량이 비슷하다.
 
 실행 시간이 오래걸리는 순으로 나열했을 때,
  ```
-  	 **trivial > juggle > block-swap > reverse**   또는
-	 **trivial > juggle > reverse > block-swap** 
-   임을 추론할 수 있다. 
-  ```
+ trivial > juggle > block-swap > reverse  
+ ``` 
+또는
+ ```
+ trivial > juggle > reverse > block-swap
+ ```
+ 임을 추론할 수 있다. 
 
 
 

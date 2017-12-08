@@ -18,41 +18,41 @@ void blockswap(char arr[], int n, int d)
 	else if (d < 0)	
 	{
 		pos_d = -d;
-		int sizeA = pos_d;
-		int sizeB = n - pos_d;
-		while (sizeA != sizeB)
+		int A_Block = pos_d;
+		int B_Block = n - pos_d;
+		while (A_Block != B_Block)
 		{
-			if (sizeA < sizeB)
+			if (A_Block < B_Block)
 			{
-				swap(arr, pos_d - sizeA, pos_d + sizeB - sizeA, sizeA);
-				sizeB -= sizeA;
+				swap(arr, pos_d - A_Block, pos_d + B_Block - A_Block, A_Block);
+				B_Block -= A_Block;
 			}
 			else
 			{
-				swap(arr, pos_d - sizeA, pos_d, sizeB);
-				sizeA -= sizeB;
+				swap(arr, pos_d - A_Block, pos_d, B_Block);
+				A_Block -= B_Block;
 			}
 		}
-		swap(arr, pos_d - sizeA, pos_d, sizeA);
+		swap(arr, pos_d - A_Block, pos_d, A_Block);
 	}
 	else			
 	{
 		temp_d = (n - d);
-		int sizeA = temp_d;
-		int sizeB = n - temp_d;
-		while (sizeA != sizeB)
+		int A_Block = temp_d;
+		int B_Block = n - temp_d;
+		while (A_Block != B_Block)
 		{
-			if (sizeA < sizeB)
+			if (A_Block < B_Block)
 			{
-				swap(arr, temp_d - sizeA, temp_d + sizeB - sizeA, sizeA);
-				sizeB -= sizeA;
+				swap(arr, temp_d - A_Block, temp_d + B_Block - A_Block, A_Block);
+				B_Block -= A_Block;
 			}
 			else
 			{
-				swap(arr, temp_d - sizeA, temp_d, sizeB);
-				sizeA -= sizeB;
+				swap(arr, temp_d - A_Block, temp_d, B_Block);
+				A_Block -= B_Block;
 			}
 		}
-		swap(arr, temp_d - sizeA, temp_d, sizeA);
+		swap(arr, temp_d - A_Block, temp_d, A_Block);
 	}
 }
