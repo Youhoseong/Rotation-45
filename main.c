@@ -1,14 +1,14 @@
 #include "Rotation.h"
-void gendata(char* CharArrayOfLength, int N);
-void printHead();
+void gendata(char* CharArrayOfLength, int N); //랜덤 문자열을 생성하는 함수 
+void printHead(); //항목들을 출력하는 함수 
 
 int main()
 {	
-	int choice = 1;
+	int choice = 1; 
 	while (choice == 1)
 	{
-		char *CharArrayOfLength;
-		char *str; //문자열 저장용
+		char *CharArrayOfLength; //생성된 문자열의 원본 
+		char *str; //복사본 문자열 저장용 
 		int d = 0, N = 0;
 		clock_t start, finish;
 		double duration1 = 0, duration2 = 0, duration3 = 0, duration4 = 0; // 걸린 시간
@@ -24,13 +24,13 @@ int main()
 		CharArrayOfLength = (char *)malloc(sizeof(char) * (N + 1));
 		srand(time(NULL));
 		gendata(CharArrayOfLength, N);
-		strcpy(str, CharArrayOfLength);
 		
+		strcpy(str, CharArrayOfLength);
 		start = clock();
 		trivial(str, N, d);
 		finish = clock();
 		duration1 = (double)(finish - start) / CLOCKS_PER_SEC;
-
+		
 		strcpy(str, CharArrayOfLength);
 		start = clock();
 		Juggling(str, N, d);
@@ -53,7 +53,6 @@ int main()
 		printf("\n%d\t\t%d\t\t%f   %f   %f   %f\n", N, d, duration1, duration2, duration3, duration4);
 
 		free(CharArrayOfLength);
-
 	}
 
 	return 0;
